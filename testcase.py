@@ -9,9 +9,8 @@ def test_case():
 	httpretty.enable()
 	httpretty.register_uri(httpretty.GET, 'http://example.com', body=mock_server)
 
-	session = requests.Session()
-	r = session.get('http://example.com/')
-	r = session.get('http://example.com/')
+	r = requests.get('http://example.com/')
+	r = requests.get('http://example.com/')
 
 	httpretty.disable()
 	httpretty.reset()

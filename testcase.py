@@ -2,12 +2,9 @@ import httpretty
 import re
 import requests
 
-def mock_server(request, uri, headers):
-	return (200, {}, uri)
-
 def test_case():
 	httpretty.enable()
-	httpretty.register_uri(httpretty.GET, 'http://example.com', body=mock_server)
+	httpretty.register_uri(httpretty.GET, 'http://example.com', body='yay')
 
 	session = requests.Session()
 	r = session.get('http://example.com/')
